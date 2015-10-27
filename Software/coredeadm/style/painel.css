@@ -1,0 +1,795 @@
+/**
+ * Arquivo: painel.css
+ * Criado em: 21/03/2013
+ * @author Maik Basso - maik@maikbasso.com.br
+ */
+*{ 
+    padding: 0;
+    margin: 0;
+    outline: 0;
+}
+
+::selection{
+    background: #235BD4;
+    color: #FFFFFF;
+}
+
+::-moz-selection{
+    background: #235BD4;
+    color: #FFFFFF;
+}
+
+@font-face {
+    font-family: fonte_painel;
+    font-style: normal;
+    font-weight: normal;
+    src: url(fontes/Futura-Normal.ttf);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: fonte_painel;
+    background: #FFFFFF;
+}
+
+/*  HEADER
+--------------------------------------------------*/
+#header{
+    height: 35px;
+    width: 100%;
+    background: #5CC6D0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: #000 0px 0px 5px;
+}
+
+#header #mensagemUsuario{
+    float: right;
+    height: 25px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 10px;
+    background: #CCE7D4;
+    margin-top: 0;
+    color: #48887B;
+    cursor: pointer;
+}
+
+#header #titulo a{
+    font-size: 20px;
+    color: #FFFFFF;
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+#header #subtitulo{
+    font-size: 14px;
+    color: #FFFFFF;
+    float: left;
+    margin-top: 11px;
+    margin-left: 5px;
+    text-decoration: none;
+}
+
+/*  POPUP's
+--------------------------------------------------*/
+#popUpMensagem{
+    width: 400px;
+    height: 200px;
+    float: right;
+    top: 45px;
+    left: 50%;
+    margin-left: -200px;
+    display: block;
+    position: fixed;
+    z-index: 9999999999;
+}
+
+#popUpUsuario{
+    width: 200px;
+    float: right;
+    top: 45px;
+    right: 10px;
+    display: none;
+    cursor: auto;
+}
+
+.popUp{
+    background: #FFFFFF;
+    box-shadow: #A9ABAE 0 0 15px;
+    border: solid 1px #E6E7E8;
+    border-radius: 6px;
+    position: absolute;
+    font-family: fonte_painel;
+}
+
+.popUp .btnOk{
+    font-weight: normal;
+    float: right;
+    text-decoration: none;
+    padding: 10px 13px 10px 13px;
+    margin-top: 5px;
+    margin-right: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+    background: #5CC6D0;
+    border-radius: 4px;
+}
+
+.popUp .btnCancelar{
+    font-weight: normal;
+    float: right;
+    text-decoration: none;
+    padding: 10px 13px 10px 13px;
+    margin-top: 5px;
+    margin-right: 10px;
+    color: #FFFFFF;
+    cursor: pointer;
+    background: #A9ABAE;
+    border-radius: 4px;
+}
+
+.popUp .triangulo{
+    width: 1px;
+    height: 1px;
+    border: solid 10px transparent;
+    border-bottom: solid 10px #FFFFFF;
+    border-top: none;
+    margin-top: -10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.popUp h1{
+    font-size: 20px;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: #5CC6D0;
+    margin-left: 10px;
+    float: left;
+    width: 150px;
+}
+
+.popUp h2{
+    font-size: 14px;
+    text-align: left;
+    margin-top: 5px;
+    color: #A9ABAE;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    float: left;
+    width: 150px;
+}
+
+.popUp h3{
+    font-size: 18px;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: #5CC6D0;
+    margin-left: 10px;
+    float: left;
+    width: 380px;
+}
+
+.popUp h4{
+    font-size: 14px;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 0;
+    color: #111111;
+    margin-left: 10px;
+    float: left;
+    width: 380px;
+    height: 100px;
+    text-align: justify;
+}
+
+.popUp ul{
+    list-style: none;
+    margin-left: 0px;
+    margin-top: 70px;
+    width: 100%;
+}
+
+.popUp ul li{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: -1px;
+}
+
+.popUp ul li a{
+    color: #A9ABAE;
+    text-decoration: none;
+    padding-left: 10px
+}
+
+/*  MENU
+--------------------------------------------------*/
+#menu_v{
+    left:0;
+    top:0;
+    position: fixed;
+    width:200px;
+    height: 100%;
+    list-style:none;
+    background: #E6E7E8;
+    color:#ffffff;
+    z-index: 0;
+    font-family: fonte_painel;
+    box-shadow: #000 0px 0px 5px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+#menu_v dl {
+    width: 200px;
+    margin-top: 60px;
+}
+#menu_v dd {
+    margin: -1px 0 0 0;
+}
+#menu_v dt { 
+    background: #5CC6D0;
+    font-size: 18px;
+    padding: 5px;
+    margin: 0px;
+    border-bottom: 1px solid #CCE7D4;
+}
+#menu_v dt a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+#menu_v dt a:hover, #menu_v dt a:active, #menu_v dt a:focus, #menu_v dt a:after{
+    border: none;
+}
+#menu_v dd a {
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none;
+}
+#menu_v dd a:hover{
+    color: #537473;
+}
+#menu_v ul {
+    list-style: none;
+}
+#menu_v ul li{
+    width: 190px;
+    padding: 5px;
+    border-bottom: 1px solid #5CC6D0;
+}
+#menu_v ul li:hover{
+    border-left: 5px solid #5CC6D0;
+    padding-right: 0;
+}
+
+/*  CONTEÚDO
+--------------------------------------------------*/
+#conteudo{
+    height: 100%;
+    margin-top: 55px;
+    margin-bottom: 60px;
+    margin-left: 200px;
+    padding: 10px 0 0 0;
+}
+/* Janela interna do sistema */
+#conteudo .janela{
+    height: 400px;
+    width: 900px;
+    padding: 5px 5px 5px 0;
+    position: fixed;
+    display: none;
+    z-index: 1000000;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px #CCCCCC;
+}
+#conteudo .janela a.fechar{
+    float: right;
+    margin: 5px 10px 10px 10px;
+    color: #CCCCCC;
+    text-decoration: none;
+}
+
+#conteudo .painelHome{
+    max-width: 950px;
+    background: url("") no-repeat center center;/* Definir um logo para o painel aqui */
+    padding-left: 40px;
+    display: table;
+}
+
+#conteudo .painelHome .bloco{
+    width: 180px;
+    height: 250px;
+    margin: 10px;
+    float: left;
+}
+
+#conteudo .painelHome .bloco h1{
+    background: #5CC6D0;
+    font-family: fonte_painel;
+    font-size: 16px;
+    text-align: center;
+    color: #FFFFFF;
+    font-weight: normal;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 4px 4px 0 0;
+    height: 35px;
+}
+
+#conteudo .painelHome .bloco .conteudo{
+    width: 178px;
+    height: 205px;
+    margin-top: -1px;
+    border: 1px solid #5CC6D0;
+    border-radius: 0 0 4px 4px;
+}
+
+#conteudo .painelHome .bloco .conteudo a{
+    text-decoration: none;
+    color: #A9ABAE;
+}
+
+#conteudo .painelHome .bloco .conteudo progress{
+    width: 128px;
+    height: 20px;
+    margin-left: 25px;
+    background-color: #ffffff;
+    border: solid #E6E7E8 1px;
+    border-radius: 4px;
+}
+
+#conteudo .painelHome .bloco .conteudo progress::-webkit-progress-value {
+    background: #5CC6D0;
+}
+
+#conteudo .painelHome .bloco .conteudo progress::-moz-progress-bar {
+    background: #5CC6D0;
+}
+
+#conteudo .painelHome .bloco .conteudo progress[value]::-webkit-progress-bar {
+   background: #FFFFFF;
+   border-radius: 4px;
+}
+
+#conteudo .painelHome .bloco .conteudo img{
+    width: 128px;
+    height: 128px;
+    padding-left: 25px;
+    border: none;
+}
+
+#conteudo .painelHome .bloco .conteudo img{
+    width: 128px;
+    height: 128px;
+    margin: 5px auto;
+}
+
+#conteudo .painelHome .bloco .conteudo p{
+    font-family: fonte_painel;
+    font-size: 14px;
+    color: #A9ABAE;
+    padding: 5px;
+    text-align: center;
+}
+
+#conteudo .permissaoNegada{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -150px;
+    margin-top: -150px;
+    background: url("img/permissao_negada.png") no-repeat center center;/* Definir um logo para o painel aqui */
+}
+
+#conteudo .titulo{
+    width: 220px;
+    padding: 10px;
+    background: #5CC6D0;
+    color: #FFFFFF;
+    font-size: 16px;
+    border-radius: 0 5px 5px 0;
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+#conteudo .formulario{
+    margin: 0 0 0 10px;
+}
+
+#conteudo .formulario table{
+    border: none;
+}
+
+#conteudo .formulario table tr td .label{
+    float: right;
+    text-align: right;
+    margin-right: 10px;
+    color: #A9ABAE;
+}
+
+#conteudo .formulario table tr td{
+    padding: 5px;
+}
+
+#conteudo .formulario table tr td input{
+    width: 400px;
+    color: #48887B;
+    font-size: 14px;
+    border: 1px #48887B solid;
+    padding: 5px;
+    border-radius: 4px;
+    background: #FFFFFF;
+}
+
+#conteudo .formulario table tr td textArea{
+    width: 400px;
+    height: 200px;
+    color: #48887B;
+    font-size: 14px;
+    border: 1px #48887B solid;
+    padding: 5px;
+    border-radius: 4px;
+    background: #FFFFFF;
+}
+
+#conteudo .formulario table tr td label{
+    text-align: right;
+    text-align: left;
+    margin-right: 10px;
+    color: #48887B;
+}
+
+#conteudo .formulario table tr td label input{
+    width: 20px;
+}
+
+#conteudo .formulario table tr td select{
+    width: 300px;
+    color: #48887B;
+    font-size: 14px;
+    border: 1px #48887B solid;
+    padding: 5px;
+    border-radius: 4px;
+    text-align: center;
+    background: #FFFFFF;
+}
+
+#conteudo .formulario table tr td .btn{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    background: #F58634;
+    border-radius: 4px;
+    padding: 3px;
+    margin-left: 5px;
+    border: none;
+    float: right;
+    width: 80px;
+}
+
+#conteudo .formulario table tr td .btn:hover{
+    background: #ff6600;
+    cursor: pointer;
+}
+
+#conteudo .formulario table tr td a{
+    text-decoration: none;
+    color: #48887B;
+    font-size: 16px;
+    text-align: center;
+}
+
+#conteudo .formulario table tr td a:hover{
+    text-decoration: underline;
+}
+
+#conteudo table.tabelaDeVisualizacao{
+    margin: 0 auto;
+    width: 900px;
+}
+
+#conteudo table.tabelaDeVisualizacao tr{
+    
+}
+
+#conteudo table.tabelaDeVisualizacao tr th{
+    height: 40px;
+    font-size: 16px;
+    background: #5CC6D0;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-weight: normal;
+}
+
+#conteudo table.tabelaDeVisualizacao tr th a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#conteudo table.tabelaDeVisualizacao tr th a:hover{
+    text-decoration: underline;
+}
+
+#conteudo table.tabelaDeVisualizacao tr td{
+    height: 30px;
+    font-size: 14px;
+    padding: 0 0 0 10px;
+}
+
+#conteudo table.tabelaDeVisualizacao tr td a{
+    text-decoration: none;
+    color: #000000;
+}
+
+#conteudo table.tabelaDeVisualizacao tr td a:hover{
+    text-decoration: underline;
+}
+
+/* Icones usados nas tabelas */
+#conteudo table.tabelaDeVisualizacao tr td .pasta{
+    background: url(img/pasta.png) no-repeat center;
+}
+
+#conteudo table.tabelaDeVisualizacao tr td .arquivo{
+    background: url(img/arquivo.png) no-repeat center;
+}
+
+#conteudo table.tabelaDeVisualizacao tr td .excluir{
+    background: url(img/excluir.png) no-repeat center;
+}
+
+#conteudo table.tabelaDeVisualizacao tr td .download{
+    background: url(img/download.png) no-repeat center;
+}
+
+#conteudo table.tabelaDeVisualizacao tr td .editar{
+    background: url(img/editar.png) no-repeat center;
+}
+
+#conteudo table.tabelaDeVisualizacao tr td .visualizar{
+    background: url(img/visualizar.png) no-repeat center;
+}
+
+#conteudo table.tabelaDeVisualizacao tr td .restauracao{
+    background: url(img/restaurar.png) no-repeat center;
+}
+
+#conteudo table.tabelaDeVisualizacao tr td .fotos{
+    background: url(img/fotos.png) no-repeat center;
+}
+
+#conteudo table.tabelaDeVisualizacao tr td .relatorio{
+    background: url(img/relatorio.png) no-repeat center;
+}
+
+#conteudo table.tabelaDeVisualizacao tr td .pasta,
+#conteudo table.tabelaDeVisualizacao tr td .arquivo,
+#conteudo table.tabelaDeVisualizacao tr td .excluir,
+#conteudo table.tabelaDeVisualizacao tr td .editar,
+#conteudo table.tabelaDeVisualizacao tr td .visualizar,
+#conteudo table.tabelaDeVisualizacao tr td .download,
+#conteudo table.tabelaDeVisualizacao tr td .restauracao,
+#conteudo table.tabelaDeVisualizacao tr td .fotos,
+#conteudo table.tabelaDeVisualizacao tr td .relatorio{
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    float: left;
+    padding: 4px 2px 4px 2px;
+}
+
+/* os estilos das zebras na tabela estão definidos no javascript painel.js */
+
+#conteudo .campodebusca{
+    width: 600px;
+    height: 50px;
+    margin: 10px auto 10px auto;
+}
+
+#conteudo .campodebusca .campodetexto{
+    width: 400px;
+    float: left;
+    font-size: 14px;
+    border: 1px #F58634 solid;
+    padding: 5px;
+    border-radius: 4px 0 0 4px;
+    color: #F58634;
+    background: #FFFFFF;
+}
+
+#conteudo .campodebusca .btn{
+    background: #F58634;
+    width: 60px;
+    height: 35px;
+    float: left;
+    border-radius:4px;
+    border: none;
+    margin-left: -1px;
+    margin-top: -4px;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#conteudo ul.barradenavegacao{
+    height: 40px;
+    width: 900px;
+    margin: 30px auto 10px auto;
+    list-style: none;
+    font-size: 14px;
+}
+
+#conteudo ul.barradenavegacao li{
+    position: relative;
+    float: left;
+    margin: 0 auto;
+}
+
+#conteudo ul.barradenavegacao li .display{
+    padding: 5px;
+    background: #ff6600;
+    color: #ffffff;
+    border-radius: 4px;
+    margin-left: 2px;
+    margin-top: -5px;
+}
+
+#conteudo ul.barradenavegacao li a{
+    padding: 5px;
+    background: #F58634;
+    color: #ffffff;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-left: 2px;
+}
+
+#conteudo ul.barradenavegacao li a:hover{
+    background: #ff6600;
+}
+
+/*  FOOTER
+--------------------------------------------------*/
+#footer{
+    right: 0;
+    height:50px;
+    bottom: 0;
+    position: fixed;
+}
+
+#footer .btnConteiner{
+    float: right;
+    text-align: right;
+    margin: 12px 10px 0 0;
+}
+
+#footer .btnConteiner a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    background: #F58634;
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: 5px;
+    width: 100px;
+    border: none;
+}
+
+#footer .btnConteiner a:hover{
+    background: #ff6600;
+}
+
+#footer .btnConteiner input{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    background: #F58634;
+    border-radius: 4px;
+    padding: 3px;
+    margin-left: 5px;
+    border: none;
+    font-family: fonte_painel;
+}
+
+#footer .btnConteiner input:hover{
+    background: #ff6600;
+    cursor: pointer;
+}
+
+/*  VISUALIZAÇÃO DE IMAGENS
+--------------------------------------------------*/
+#visualizadorDeImagens{
+    background: none;
+    height: 438px;
+    width: 700px;
+    display: none;
+    z-index: 1000001;
+    position:fixed;
+    left:50%;
+    top:50%;
+    margin-left:-350px;
+    margin-top:-250px;
+    text-align: center;
+}
+#visualizadorDeImagens a.fechar{
+    border-radius: 0 0 5px 5px;
+    width: 700px;
+    float: left;
+    color: #FFFFFF;
+    font-size: 14px;
+    text-decoration: none;
+    padding-top: 10px;
+    text-shadow: 0px 0px 10px #000000;
+}
+#visualizadorDeImagens .imagem{
+    max-height: 438px;
+    max-width: 700px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px #CCCCCC;
+    cursor: pointer;
+}
+
+/*  SOBRE
+--------------------------------------------------*/
+#sobre{
+    background: url(img/sobre_logo.png) #FFFFFF no-repeat center;
+    height: 400px;
+    width: 400px;
+    padding: 5px 5px 5px 0;
+    border: 1px solid #CCCCCC;
+    border-radius: 30px 5px 30px 5px;
+    box-shadow: 0px 0px 20px #CCCCCC;
+    display: none;
+    z-index: 1000000;
+    position:fixed;
+    left:50%;
+    top:50%;
+    margin-left:-200px;
+    margin-top:-200px;
+}
+#sobre a.fechar{
+    float: right;
+    margin: 5px 10px 10px 10px;
+    color: #CCCCCC;
+    text-decoration: none;
+}
+#sobre p{
+    font-family: fonte_painel;
+    font-size: 12px;
+    font-weight: normal;
+    text-align: center;
+    width: 400px;
+    margin-top: 370px;
+    color: #A9ABAE;
+}
+
+/*  CARREGANDO
+--------------------------------------------------*/
+#carregando{
+    background: url(img/carregando_ws.gif) #FFFFFF no-repeat center;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 20px #CCCCCC;
+    display: block;
+    z-index: 1000000;
+    position:fixed;
+    left:50%;
+    top:50%;
+    margin-left:-75px;
+    margin-top:-75px;
+}

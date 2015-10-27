@@ -1,0 +1,127 @@
+/**
+ * Arquivo: teladelogin.css
+ * Criado em: 21/03/2013
+ * @author Maik Basso - maik@maikbasso.com.br
+ */
+*{ 
+    padding: 0;
+    margin: 0;
+    outline: 0;
+}
+
+@font-face {
+    font-family: fonte_login;
+    font-style: normal;
+    font-weight: normal;
+    src: url(fontes/Futura-Normal.ttf);
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: fonte_login;
+    background: #5CC6D0;
+}
+
+
+/*  HEADER
+--------------------------------------------------*/
+#header{
+    height: 118px;
+    width: 100%;
+    background: #ffffff;
+    font-family: fonte_login;
+}
+
+#header #titulo{
+    font-size: 60px;
+    color: #A9ABAE;
+    float: left;
+    margin-top: 40px;
+    margin-left: 20px;
+}
+
+#header #btn{
+    float: right;
+    width: 222px;
+    background: #CCE7D4;
+    border-radius: 5px 0 0 5px;
+    margin-top: 32px;
+    padding: 5px;
+}
+
+#header #btn a{
+    text-decoration: none;
+    color: #A9ABAE;
+    font-size: 22px;
+    text-align: center;
+    margin-left: 23px;
+}
+
+#header #btn a:hover{
+    margin-left: 25px;
+}
+
+/*  CONTEÚDO
+--------------------------------------------------*/
+#conteudo{
+    height: 100%;
+    font-family: fonte_login;
+}
+
+#conteudo table{
+    margin: 100px auto;
+    height: 150px;
+    width: 400px;
+}
+
+#conteudo .lable{
+    color: #CCE7D4;
+    font-size: 24px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+#conteudo .campodetexto{
+    width: 300px;
+    color: #48887B;
+    font-size: 24px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    background: #FFFFFF;
+}
+
+#conteudo .visibilidadeDaSenha{
+    color: #fff;
+    font-size: 14px;
+    padding: 5px;
+    margin: 50px 0 0 70px;
+}
+
+#conteudo .btn{
+    color: #ffffff;
+    background: #F58634;
+    font-size: 24px;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#conteudo .btn:hover{
+    background: #ff6600;
+}
+
+/*  FOOTER
+--------------------------------------------------*/
+#footer{
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    border-top: #eee solid 1px;
+    background: #ffffff;
+}

@@ -34,6 +34,9 @@ $usuarioNegocio = new UsuarioNegocio();
     <dl>
         <dt><a title="Acessar o site" href="#" onclick="window.open('../','_blank');">Ir ao site</a></dt>
 
+        <?php
+        if($usuarioLogado->getTipo() < 2){
+        ?>
         <dt><a title="Abre menu" href="#">Banner Principal</a></dt>
         <dd>
             <ul>
@@ -48,7 +51,7 @@ $usuarioNegocio = new UsuarioNegocio();
                 <li><a href="arquivos.php">Gerenciar arquivos</a></li>
             </ul>
         </dd>
-        
+        <?php } ?>
         <?php
         /*
         <dt><a title="Abre menu" href="#">Idiomas</a></dt>
@@ -67,7 +70,10 @@ $usuarioNegocio = new UsuarioNegocio();
                 <li><a href="noticiavisualizacao.php">Listar Noticias</a></li>
             </ul>
         </dd>
-
+        
+        <?php
+        if($usuarioLogado->getTipo() < 2){
+        ?>
         <dt><a title="Abre menu" href="#">Opções</a></dt>
         <dd>
             <ul>
@@ -76,6 +82,7 @@ $usuarioNegocio = new UsuarioNegocio();
             </ul>
         </dd>
 
+        
         <dt><a title="Abre menu" href="#">Páginas</a></dt>
         <dd>
             <ul>
@@ -91,5 +98,7 @@ $usuarioNegocio = new UsuarioNegocio();
                 <li><a href="usuariovisualizacao.php">Listar usuários</a></li>
             </ul>
         </dd>
+        
+        <?php } ?>
     </dl>
 </div>

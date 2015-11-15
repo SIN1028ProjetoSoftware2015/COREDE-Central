@@ -50,7 +50,7 @@ class NoticiaDao{
     
     //deletar
     public function deletar(NoticiaModelo $noticia) {
-        $sql = "DELETE FROM " . $this->prefixoTabela . "noticias WHERE id='" . $noticia->getId() . "' AND idioma='" . $noticia->getIdioma() . "'";
+        $sql = "DELETE FROM " . $this->prefixoTabela . "noticias WHERE id='" . $noticia->getId() . "';";
         $this->conexao->consultaDB($sql);
         $this->conexao->desconectar();
     }

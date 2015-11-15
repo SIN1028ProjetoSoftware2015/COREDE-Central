@@ -61,9 +61,6 @@ for($i = 0; $i < sizeof($lista); $i++){
             <td><a href="paginaform.php?editar=' . $lista[$i]->getId() . '&idioma=' . $lista[$i]->getIdioma() . '" title="Editar">'.
                 $lista[$i]->getTitulo()
             .'</a></td>
-            <td>'.
-              $idiomaAtual
-            .'</td>
             <td>
                 <label>
                     <a href="paginaform.php?editar=' . $lista[$i]->getId() . '&idioma=' . $lista[$i]->getIdioma() . '" title="Editar"><div class="editar"></div></a>
@@ -89,8 +86,7 @@ include_once './ui/header.interface.php';
 <table id="tabela" class="tabelaDeVisualizacao">
     <tr>
         <th style="width: 10%">Código</th>
-        <th style="width: 50%">Título</th>
-        <th style="width: 25%">Idioma</th>
+        <th style="width: 75%">Título</th>
         <th style="width: 15%">Ações</th>
     </tr>
     <?php echo $linhasDaTabela;?>

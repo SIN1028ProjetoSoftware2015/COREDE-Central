@@ -99,8 +99,8 @@ class NoticiaNegocio{
     }
     
     //consultar todos
-    public function listarNoticia($numPaginaAtual, $numDeRegistrosPorPagina) {
-        return $this->dao->listar($numPaginaAtual, $numDeRegistrosPorPagina);
+    public function listarNoticia($numPaginaAtual, $numDeRegistrosPorPagina, $tag) {
+        return $this->dao->listar($numPaginaAtual, $numDeRegistrosPorPagina, $tag);
     }
     
     public function listarNoticiaIdioma($numPaginaAtual, $numDeRegistrosPorPagina, $idioma) {

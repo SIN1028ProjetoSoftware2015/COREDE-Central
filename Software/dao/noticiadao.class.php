@@ -13,7 +13,7 @@
 
 include_once 'conexaodao.class.php';
 include_once './dados/noticiamodelo.class.php';
-include_once './saiadm/config/sistema.class.php';
+include_once './coredeadm/config/sistema.class.php';
 
 class NoticiaDao{
     private $conexao = null;
@@ -169,11 +169,11 @@ class NoticiaDao{
     }
     
     //listar
-    public function listar($numeroPagina, $numDeRegistrosPorPagina) {
-        $sqlCalculo = "SELECT * FROM " . $this->prefixoTabela . "noticias;";
+    public function listar($numeroPagina, $numDeRegistrosPorPagina, $tag) {
+        $sqlCalculo = "SELECT * FROM " . $this->prefixoTabela . "noticias WHERE tags = '".$tag."';";
         $this->atualizaNumRegistros($sqlCalculo);
         
-        $sql = "SELECT * FROM " . $this->prefixoTabela . "noticias ORDER BY id DESC LIMIT ". $numeroPagina . ", " . $numDeRegistrosPorPagina . ";";
+        $sql = "SELECT * FROM " . $this->prefixoTabela . "noticias WHERE tags = '".$tag."' ORDER BY id DESC LIMIT ". $numeroPagina . ", " . $numDeRegistrosPorPagina . ";";
         $resultado = $this->conexao->consultaDB($sql);
         
         

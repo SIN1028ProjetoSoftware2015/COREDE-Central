@@ -243,31 +243,43 @@ include_once './ui/header.interface.php';
             ?>
         </td>
     </tr>
-    <tr>
-        <td><div class="label">Publicar:</div></td>
-        <td>
-            <select name="publicar">
-            <?php
-            if(isset($_GET["editar"])){
+    <?php
+        
+        echo '<tr><td><div class="label">Publicar:</div></td><td><select name="publicar">';
+            
+        if(isset($_GET["editar"])){
+            if($usuarioLogado->getTipo() > 1){
+                if($publicar == 1){
+                    echo '<option value="1">Sim</option>';
+                }
+                else{
+                    echo '<option value="0">Não</option>';
+                }
+            }
+            else{
                 if($publicar == 1){
                     echo '
                         <option value="1">Sim</option>
-                        <option value="0">Não</option>
-                    </select>';
+                        <option value="0">Não</option>';
                 }
                 else{
                     echo '<option value="0">Não</option>'
                     . '<option value="1">Sim</option>';
                 }
             }
+        }
+        else{
+            if($usuarioLogado->getTipo() > 1){
+                echo '<option value="0">Não</option>';
+            }
             else{
                 echo '<option value="0">Não</option>'
                 . '<option value="1">Sim</option>';
             }
-            ?>
-            </select>
-        </td>
-    </tr>
+        }
+        
+        echo '</select></td></tr>';
+    ?>
     <tr>
         <td>
             <div class="label">Conteúdo:</div>
@@ -278,10 +290,32 @@ include_once './ui/header.interface.php';
     </tr>
     <tr>
         <td>
-            <div class="label">Tags:</div>
+            <div class="label">Categoria:</div>
         </td>
         <td>
-            <input type="text" name="tags" value="<?php echo $tags; ?>">
+            <select name="tags">
+                <?php
+                    switch ($tags) {
+                        case "convocacoes":
+                            echo '
+                            <option value="convocacoes">Convocações</option>
+                            <option value="noticia">Notícias</option>
+                            <option value="convites">Convites</option>';
+                            break;
+                        case "convites":
+                            echo '
+                            <option value="convites">Convites</option>
+                            <option value="convocacoes">Convocações</option>
+                            <option value="noticia">Notícias</option>';
+                            break;
+
+                        default:
+                            echo '<option value="noticia">Notícias</option>
+                            <option value="convocacoes">Convocações</option>
+                            <option value="convites">Convites</option>';
+                    }
+                ?>
+            </select>
         </td>
     </tr>
 </table>

@@ -13,7 +13,7 @@
 
 include_once 'conexaodao.class.php';
 include_once './dados/bannermodelo.class.php';
-include_once './saiadm/config/sistema.class.php';
+include_once './coredeadm/config/sistema.class.php';
 
 class BannerDao{
     private $conexao = null;

@@ -24,20 +24,20 @@ class Sistema{
     /*  BANCO DE DADOS
     -----------------------------------------------------*/
     //nome do servidor de banco de dados MySQL
-    private $servidor = "saiguia.mysql.uhserver.com";
+    private $servidor = "localhost";
     //usuário do banco de dados com permissão chmod 777
-    private $usuario = "saiguia";
+    private $usuario = "root";
     //senha do bando de dados
-    private $senha = "cssjm@2015";
+    private $senha = "passserver";
     //nome do banco de dados
-    private $bancoDeDados = "saiguia";
+    private $bancoDeDados = "corede";
     //prefixo das tabelas no banco de dados
     private $prefixoTabelas = "mb_";
 
         /*  SESSÕES DE USUÁRIOS
     -----------------------------------------------------*/
     //nome da variável de sessão
-    private $nomeSessaoDeUsuario = "saiguia";
+    private $nomeSessaoDeUsuario = "corede";
 
     /*  PÁGINAS ESPECÍFICAS
     -----------------------------------------------------*/

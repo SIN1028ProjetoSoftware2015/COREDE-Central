@@ -26,7 +26,7 @@ $idiomaNegocio = new IdiomaNegocio();
 //se o formlario foi enviado
 if(isset($_POST["titulo"]) && isset($_POST["conteudo"])){
     if(isset($_GET["editar"]) && isset($_GET["idioma"])){
-        $paginaNegocio->alterarPagina($_GET["editar"], $_POST["titulo"], $_POST["conteudo"], $_POST["tags"], $_GET["idioma"]);
+        $paginaNegocio->alterarPagina($_GET["editar"], $_POST["titulo"], $_POST["conteudo"], "", $_GET["idioma"]);
         //mensagem
         $interfaceNegocio->setMensagemDeAlerta("Página alterada com sucesso!");
     }
@@ -46,7 +46,7 @@ if(isset($_POST["titulo"]) && isset($_POST["conteudo"])){
         
         $idioma = $idiomaNegocio->consultarIdioma("");
         for ($i = 0; $i < count($idioma); $i++) {
-            $paginaNegocio->inserirPagina($maiorID, $_POST["titulo"], $_POST["conteudo"], $_POST["tags"], $idioma[$i]->getId());
+            $paginaNegocio->inserirPagina($maiorID, $_POST["titulo"], $_POST["conteudo"], "", $idioma[$i]->getId());
         }
         //mensagem
         $interfaceNegocio->setMensagemDeAlerta("Página criada com sucesso!");
@@ -63,14 +63,12 @@ if(isset($_GET["editar"])){
         
         $nome = $paginaSendoEditada->getTitulo();
         $conteudo = $paginaSendoEditada->getConteudo();
-        $tags = $paginaSendoEditada->getTags();
         $urlEdicao = "?editar=" . $id . "&idioma=" . $idioma;
     }
     else{
         $interfaceNegocio->setMensagemDeAlerta("Página não encontrado!");
         $nome = "";
         $conteudo = "";
-        $tags = "";
         $urlEdicao = "";
     }
 }
@@ -79,7 +77,6 @@ else{
     $urlEdicao = "";
     $nome = "";
     $conteudo = "";
-    $tags = "";
 }
 
 //define o titulo da página
@@ -92,20 +89,6 @@ include_once './ui/header.interface.php';
 
 <form class="formulario" action="paginaform.php<?php echo $urlEdicao;?>" method="post" name="formulario">
 <table>
-    <?php
-    if(isset($_GET["editar"])){
-        $idiomaAtual = $idiomaNegocio->consultarUnicaIdioma($idioma);
-        echo 
-        '<tr>
-            <td>
-                <div class="label">Idioma:</div>
-            </td>
-            <td>
-                <input type="text" value="'.$idiomaAtual->getIdioma().'" disabled>
-            </td>
-        </tr>';
-    }
-    ?>
     <tr>
         <td>
             <div class="label">Título:</div>
@@ -125,14 +108,6 @@ include_once './ui/header.interface.php';
         <td></td>
         <td>
             <textarea id="editordetexto" name="conteudo" class="ckeditor"><?php echo $conteudo; ?></textarea>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div class="label">Tags:</div>
-        </td>
-        <td>
-            <input type="text" name="tags" value="<?php echo $tags; ?>">
         </td>
     </tr>
 </table>

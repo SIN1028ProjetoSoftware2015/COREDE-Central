@@ -19,7 +19,6 @@ include_once './negocio/configuracaonegocio.class.php';
 include_once './negocio/arquivonegocio.class.php';
 include_once './config/sistema.class.php';
 include_once './negocio/interfacenegocio.class.php';
-include_once './negocio/idiomanegocio.class.php';
 
 //cria os objetos
 $configuracaoNegocio = new ConfiguracaoNegocio();
@@ -27,19 +26,13 @@ $noticiaNegocio = new NoticiaNegocio();
 $arquivoNegocio = new ArquivoNegocio();
 $Sistema = new Sistema();
 $interfaceNegocio = new InterfaceNegocio();
-$idiomaNegocio = new IdiomaNegocio();
-
-//lista de idiomas
-$listaDeIdiomas = $idiomaNegocio->consultarIdioma("");
 
 //se a ação for excluir
 if(isset($_GET["excluir"])){
     
-    for ($i = 0; $i < count($listaDeIdiomas); $i++) {        
-        $aux = $noticiaNegocio->consultarUnicaNoticia($_GET["excluir"], $listaDeIdiomas[$i].getId());
+    $aux = $noticiaNegocio->consultarUnicaNoticia($_GET["excluir"], 1);
 
-        $arquivoNegocio->deletar($Sistema->getDirImagens().$aux->getLinkFoto());
-    }
+    $arquivoNegocio->deletar($Sistema->getDirImagens().$aux->getLinkFoto());
 
     $noticiaNegocio->deletarNoticia($_GET["excluir"]);
     $interfaceNegocio->setMensagemDeAlerta("Notícia deletada com sucesso!");
@@ -64,13 +57,13 @@ for($i = 0; $i < sizeof($lista); $i++){
         $statusNoticia = "Não";
     }
     
-    $idiomaAtual = "";
+    $permExcluir = "";
     
-    for ($x = 0; $x < count($listaDeIdiomas); $x++) {
-        if($listaDeIdiomas[$x]->getId() == $lista[$i]->getIdioma()){
-           $idiomaAtual = $listaDeIdiomas[$x]->getIdioma(); 
-        }
+    if($usuarioLogado->getTipo() < 2){
+        $permExcluir = ' <a href="noticiaform.php?editar=' . $lista[$i]->getId() . '&idioma=' . $lista[$i]->getIdioma() . '" title="Editar"><div class="editar"></div></a>'
+                . '<a href="#" title="Excluir"><div onclick="negocioNoticia.excluir(\''.$lista[$i]->getId().'\');" class="excluir"></div></a>';
     }
+    
     
     $linhasDaTabela = $linhasDaTabela . '
         <tr>
@@ -81,7 +74,7 @@ for($i = 0; $i < sizeof($lista); $i++){
                 $lista[$i]->getTitulo()
             .'</a></td>
             <td>'.
-                $idiomaAtual
+                $lista[$i]->getTags()
             .'</td>
             <td>'.
                 $lista[$i]->getDataNoticia()
@@ -91,8 +84,7 @@ for($i = 0; $i < sizeof($lista); $i++){
             .'</td>
             <td>
                 <label>
-                    <a href="noticiaform.php?editar=' . $lista[$i]->getId() . '&idioma=' . $lista[$i]->getIdioma() . '" title="Editar"><div class="editar"></div></a>
-                    <a href="#" title="Excluir"><div onclick="negocioNoticia.excluir(\''.$lista[$i]->getId().'\');" class="excluir"></div></a>
+                   '.$permExcluir.'
                     <a target="_blank" href="../noticia.php?id=' . $lista[$i]->getId() . '" title="Ver no site"><div class="visualizar"></div></a>
                 </label>
             </td>
@@ -116,7 +108,7 @@ include_once './ui/header.interface.php';
     <tr>
         <th style="width: 10%">Código</th>
         <th style="width: 30%">Título</th>
-        <th style="width: 15%">Idioma</th>
+        <th style="width: 15%">Categoria</th>
         <th style="width: 15%">Data</th>
         <th style="width: 15%">Publicada</th>
         <th style="width: 15%">Ações</th>

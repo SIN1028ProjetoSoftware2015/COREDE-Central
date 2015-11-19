@@ -1,4 +1,6 @@
 <?php
+include_once 'ui/seguranca.interface.php';
+
 include_once 'ui/header.ui.php';
 
 ?>
@@ -6,12 +8,10 @@ include_once 'ui/header.ui.php';
 <div class="corede-subtitulo">Atas</div>
 
 <div class="corede-atas">
-    <form action="">
-        <input type="text" placeholder="login">
-        <input type="password" placeholder="senha">
-        <input type="button" value="entrar">
+    <form action="atas.php">
+        <input name="arquivo" type="file">
     </form>
-    <table>
+    <table id="tabelaDeAtas">
         <tr>
             <th>Descrição</th>
             <th>Data</th>
@@ -22,7 +22,7 @@ include_once 'ui/header.ui.php';
             echo '<tr>
                     <td>teste de ata</td>
                     <td>24/05/15</td>
-                    <td><a href="#">Baixar</a></td>
+                    <td><a href="#">baixar</a><a class="remover" href="#">remover</a></td>
                 </tr>';
         }
         ?>

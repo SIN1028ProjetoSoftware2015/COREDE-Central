@@ -13,7 +13,7 @@
 
 include_once './dao/usuariodao.class.php';
 include_once './dados/usuariomodelo.class.php';
-include_once './config/sistema.class.php';
+include_once './coredeadm/config/sistema.class.php';
 
 class UsuarioNegocio{
     private $dao;

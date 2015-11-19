@@ -62,11 +62,20 @@ function Contato() {
 }
 contato = new Contato();
 
-window.onload = function (){
-  var linhasTabelas = document.getElementsByTagName("tr");
-  for(var i=0; i< linhasTabelas.length; i++){
-      if(i%2 !== 0){
-        linhasTabelas[i].style.background = "#000";
-      }
-  }
+
+window.onload = function () {
+    zebrarTabela("tabelaDeAtas");
 };
+
+function zebrarTabela(id) {
+    var linhasTabela = document.getElementById(id).getElementsByTagName("tr");
+
+    for (var i = 0; i < linhasTabela.length; i++) {
+        if (i % 2 === 0) {
+            linhasTabela[i].style.background = "#ddd";
+        }
+        else {
+            linhasTabela[i].style.background = "#eee";
+        }
+    }
+}

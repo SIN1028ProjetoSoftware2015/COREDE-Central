@@ -5,7 +5,7 @@
   @email maik@maikbasso.com.br
   @telefone (55) 9952-9459
  */
-
+include_once 'ui/seguranca.interface.php';
 //classes
 include_once './negocio/noticianegocio.class.php';
 include_once './negocio/configuracaonegocio.class.php';

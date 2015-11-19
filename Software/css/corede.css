@@ -532,7 +532,6 @@ ul.barradenavegacao li a:hover{
     padding: 10px;
 }
 .corede-atas table tr td{
-    background: #eeeeee;
     color: #000000;
     font-size: 1em;
     text-align: center;
@@ -546,8 +545,18 @@ ul.barradenavegacao li a:hover{
     padding: 3px 10px 3px 10px;
     border-radius: 4px;
     text-decoration: none;
+    margin-right: 5px;
 }
 .corede-atas table tr td a:hover{
+    text-decoration: none;
+}
+.corede-atas table tr td a.remover{
+    background: #FF0000;
+    color: #ffffff;
+    font-size: 1em;
+    text-align: center;
+    padding: 3px 10px 3px 10px;
+    border-radius: 4px;
     text-decoration: none;
 }
 
@@ -566,7 +575,18 @@ ul.barradenavegacao li a:hover{
     text-align: left;
     font-size: 1.4em;
 }
-.corede-atas form input[type="button"]{
+.corede-atas form input[type="file"]{
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 1em;
+    border: 1px solid #254559;
+    border-radius: 4px;
+}
+.corede-atas form input[type="submit"]{
     background: #254559;
     color: #ffffff;
     font-size: 1.4em;

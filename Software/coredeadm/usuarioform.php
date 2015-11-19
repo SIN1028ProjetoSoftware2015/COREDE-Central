@@ -222,37 +222,37 @@ if(isset($_GET["editar"])){
             $menuSeletorTipo = 
                     '<label><input type="radio" name="tipo" value="0" checked> Super Usuário</label>' .
                     '<label><input type="radio" name="tipo" value="1"> Administrador</label>' .
-                    '<label><input type="radio" name="tipo" value="2"> Operador</label>';
+                    '<label><input type="radio" name="tipo" value="2"> Membro</label>';
         }
         if($administrador == TRUE){
             $menuSeletorTipo = 
                     '<label><input type="radio" name="tipo" value="0"> Super Usuário</label>' .
                     '<label><input type="radio" name="tipo" value="1" checked> Administrador</label>' .
-                    '<label><input type="radio" name="tipo" value="2"> Operador</label>';
+                    '<label><input type="radio" name="tipo" value="2"> Membro</label>';
         }
         if($operador == TRUE){
             $menuSeletorTipo = 
                     '<label><input type="radio" name="tipo" value="0"> Super Usuário</label>' .
                     '<label><input type="radio" name="tipo" value="1"> Administrador</label>' .
-                    '<label><input type="radio" name="tipo" value="2" checked> Operador</label>';
+                    '<label><input type="radio" name="tipo" value="2" checked> Membro</label>';
         }
     }
     if($usuarioLogado->getTipo() == 1){
         if($administrador == TRUE){
             $menuSeletorTipo = 
                     '<label><input type="radio" name="tipo" value="1" checked> Administrador</label>' .
-                    '<label><input type="radio" name="tipo" value="2"> Operador</label>';
+                    '<label><input type="radio" name="tipo" value="2"> Membro</label>';
         }
         if($operador == TRUE){
             $menuSeletorTipo = 
                     '<label><input type="radio" name="tipo" value="1"> Administrador</label>' .
-                    '<label><input type="radio" name="tipo" value="2" checked> Operador</label>';
+                    '<label><input type="radio" name="tipo" value="2" checked> Membro</label>';
         }
     }
     if($usuarioLogado->getTipo() == 2){
         if($operador == TRUE){
             $menuSeletorTipo = 
-                    '<label><input type="radio" name="tipo" value="2" checked> Operador</label>';
+                    '<label><input type="radio" name="tipo" value="2" checked> Membro</label>';
         }
     }
 }
@@ -261,12 +261,12 @@ else{
         $menuSeletorTipo = 
                 '<label><input type="radio" name="tipo" value="0" checked> Super Usuário</label>' .
                 '<label><input type="radio" name="tipo" value="1"> Administrador</label>' .
-                '<label><input type="radio" name="tipo" value="2"> Operador</label>';
+                '<label><input type="radio" name="tipo" value="2"> Membro</label>';
     }
     if($usuarioLogado->getTipo() == 1){
         $menuSeletorTipo = 
                 '<label><input type="radio" name="tipo" value="1" checked> Administrador</label>' .
-                '<label><input type="radio" name="tipo" value="2"> Operador</label>';
+                '<label><input type="radio" name="tipo" value="2"> Membro</label>';
     }   
 }
 

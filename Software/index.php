@@ -1,4 +1,6 @@
 <?php
+include_once 'ui/seguranca.interface.php';
+
 include_once 'ui/header.ui.php';
 
 //incluir as classes
@@ -33,7 +35,7 @@ echo '</div></div>';
     $listaDeNoticias = $noticiaNegocio->consultarNoticiaPorTags("", 1);
     $cont = 0;
     for ($i = count($listaDeNoticias)-1; $i >= 0 ; $i--) {
-        if($cont < 6){
+        if($cont < 6 && $listaDeNoticias[$i]->getTags() == "noticia"){
             if ($listaDeNoticias[$i]->getLinkFoto() == "") {
                 echo 
                 '<div class="corede-noticia-item">
@@ -59,7 +61,7 @@ echo '</div></div>';
 </div>
 
 <div class="corede-subtitulo">Localize-se</div>
-
+<iframe class="corede-mapas" src=""></iframe>
 <?php
 include_once 'ui/footer.ui.php';
 ?>

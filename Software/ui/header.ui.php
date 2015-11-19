@@ -29,19 +29,27 @@
                 </div>
                 <div id="navbarCollapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav ">
-                        <li><a href="index.php">Home</a></li>
-                            
-                        <li><a href="listnoticia.php?tag=noticia">Notícias</a></li>
-
-                        <li><a href="listnoticia.php?tag=convocacoes">Convocações</a></li>
-
-                        <li><a href="listnoticia.php?tag=convite">Convite</a></li>
-
-                        <li><a href="atas.php">Atas</a></li>
-
-                        <li><a href="pagina.php?id=1">Sobre</a></li>
-                        
-                        <li><a href="contato.php">Contato</a></li>
+                        <?php 
+                        if($usuarioLogado != null){
+                            echo '<li><a href="index.php">Home</a></li>
+                                <li><a href="listnoticia.php?tag=noticia">Notícias</a></li>
+                                <li><a href="listnoticia.php?tag=convocacoes">Convocações</a></li>
+                                <li><a href="listnoticia.php?tag=convite">Convite</a></li>
+                                <li><a href="atas.php">Atas</a></li>
+                                <li><a href="pagina.php?id=1">Sobre</a></li>
+                                <li><a href="contato.php">Contato</a></li>
+                                <li><a href="coredeadm/index.php">Gerenciador</a></li>
+                                <li><a href="index.php?sair">Sair</a></li>';
+                        }
+                        else {
+                            echo '<li><a href="index.php">Home</a></li>
+                                <li><a href="listnoticia.php?tag=noticia">Notícias</a></li>
+                                <li><a href="listnoticia.php?tag=convite">Convite</a></li>
+                                <li><a href="pagina.php?id=1">Sobre</a></li>
+                                <li><a href="contato.php">Contato</a></li>
+                                <li><a href="login.php">Login</a></li>';
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>

@@ -32,5 +32,4 @@ if($usuarioNegocio->verificaSeHaUsuarioLogado() == FALSE){
 else{
     $usuarioLogado = $usuarioNegocio->getUsuarioLogado();
 }
-
 ?>

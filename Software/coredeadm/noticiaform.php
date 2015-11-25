@@ -201,6 +201,16 @@ include_once './ui/header.interface.php';
             </td>
         </tr>';
     }
+    if($usuarioLogado->getTipo() > 1){
+        echo '<tr>
+            <td>
+                <div class="label">Aviso:</div>
+            </td>
+                <td>
+                    As notícias só aparecerão no site após avaliação do administrador. 
+                </td>
+            </tr>';
+    }
     ?>
     <tr>
         <td>

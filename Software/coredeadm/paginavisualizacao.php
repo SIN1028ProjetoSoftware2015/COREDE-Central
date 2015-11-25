@@ -64,7 +64,6 @@ for($i = 0; $i < sizeof($lista); $i++){
             <td>
                 <label>
                     <a href="paginaform.php?editar=' . $lista[$i]->getId() . '&idioma=' . $lista[$i]->getIdioma() . '" title="Editar"><div class="editar"></div></a>
-                    <a href="#" title="Excluir"><div onclick="negocioPagina.excluir(\''.$lista[$i]->getId().'\');" class="excluir"></div></a>
                 </label>
             </td>
         </tr>  
@@ -79,10 +78,7 @@ include_once './ui/header.interface.php';
 
 ?>
 <script type="text/javascript" src="js/pagina.js"></script>
-<form class="campodebusca" action="paginavisualizacao.php" method="post">
-    <input type="text" name="busca" class="campodetexto">
-    <input type="submit" value="buscar" class="btn">
-</form>
+
 <table id="tabela" class="tabelaDeVisualizacao">
     <tr>
         <th style="width: 10%">Código</th>

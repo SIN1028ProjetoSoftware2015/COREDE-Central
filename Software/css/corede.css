@@ -81,19 +81,20 @@ body{
 
 .corede-noticia{
     width: 100%;
-    padding: 2%;
     display: table;
+    margin-bottom: 20px;
 }
 
 .corede-noticia-item{
-    width: 48%;
-    height: 150px;
+    width: 50%;
     float: left;
-    margin-top: 2%;
+    margin-bottom: 30px;
+    max-height: 160px;
 }
 
 .corede-noticia-item a{
     color: #000000;
+    font-size: 1.2em;
 }
 
 .corede-noticia-item a:hover{
@@ -102,42 +103,40 @@ body{
 
 .corede-noticia-item img{
     width: 50%;
-    max-height: 100%;
     float: left;
 }
 
 .corede-noticia-item p{
-    width: 50%;
+    width: 46%;
     float: left;
+    font-size: 1.4em;
+    text-align: left;
     padding: 2%;
-    font-weight: bold;
-    font-size: 1.2em;
 }
 
 
 @media (max-width: 768px) {
     .corede-noticia-item{
         width: 100%;
-        float: left;
+        float: none;
+        max-height: none;
     }
-
     .corede-noticia-item img{
         width: 100%;
-        float: left;
+        float: none;
     }
-
     .corede-noticia-item p{
         width: 100%;
-        float: left;
-        padding: 2%;
+        text-align: center;
+        float: none;
     }
 }
-
 .corede-mapas{
     width: 100%;
     height: 450px;
     margin-top: 20px;
     margin-bottom: 20px;
+    border: none;
 }
 .corede-mapas-titulo{
     color: #ffffff;
@@ -265,7 +264,7 @@ body{
     background: #254559;
     width: 100%;
     padding-top: 10px;
-    display: block;
+    display: table;
     height: 100px;
     bottom: 0px;
 }

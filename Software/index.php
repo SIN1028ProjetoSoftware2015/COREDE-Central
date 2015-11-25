@@ -35,7 +35,7 @@ echo '</div></div>';
     $listaDeNoticias = $noticiaNegocio->consultarNoticiaPorTags("", 1);
     $cont = 0;
     for ($i = count($listaDeNoticias)-1; $i >= 0 ; $i--) {
-        if($cont < 6 && $listaDeNoticias[$i]->getTags() == "noticia"){
+        if($listaDeNoticias[$i]->getPublicar() == 1 && $cont < 6 && $listaDeNoticias[$i]->getTags() == "noticia"){
             if ($listaDeNoticias[$i]->getLinkFoto() == "") {
                 echo 
                 '<div class="corede-noticia-item">

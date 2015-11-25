@@ -77,7 +77,6 @@ $usuarioNegocio = new UsuarioNegocio();
         <dt><a title="Abre menu" href="#">Opções</a></dt>
         <dd>
             <ul>
-                <li><a href="backup.php">Backup</a></li>
                 <li><a href="configuracao.php">Configuração</a></li>
             </ul>
         </dd>
@@ -86,7 +85,6 @@ $usuarioNegocio = new UsuarioNegocio();
         <dt><a title="Abre menu" href="#">Páginas</a></dt>
         <dd>
             <ul>
-                <li><a href="paginaform.php">Cadastrar páginas</a></li>
                 <li><a href="paginavisualizacao.php">Listar páginas</a></li>
             </ul>
         </dd>

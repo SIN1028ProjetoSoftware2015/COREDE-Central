@@ -259,14 +259,14 @@ if(isset($_GET["editar"])){
 else{
     if($usuarioLogado->getTipo() == 0){
         $menuSeletorTipo = 
-                '<label><input type="radio" name="tipo" value="0" checked> Super Usuário</label>' .
+                '<label><input type="radio" name="tipo" value="0"> Super Usuário</label>' .
                 '<label><input type="radio" name="tipo" value="1"> Administrador</label>' .
-                '<label><input type="radio" name="tipo" value="2"> Membro</label>';
+                '<label><input type="radio" name="tipo" value="2" checked> Membro</label>';
     }
     if($usuarioLogado->getTipo() == 1){
         $menuSeletorTipo = 
-                '<label><input type="radio" name="tipo" value="1" checked> Administrador</label>' .
-                '<label><input type="radio" name="tipo" value="2"> Membro</label>';
+                '<label><input type="radio" name="tipo" value="1"> Administrador</label>' .
+                '<label><input type="radio" name="tipo" value="2" checked> Membro</label>';
     }   
 }
 

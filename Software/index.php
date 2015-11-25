@@ -61,7 +61,7 @@ echo '</div></div>';
 </div>
 
 <div class="corede-subtitulo">Localize-se</div>
-<iframe class="corede-mapas" src=""></iframe>
+<iframe class="corede-mapas" src="mapas/principal/index.html"></iframe>
 <?php
 include_once 'ui/footer.ui.php';
 ?>

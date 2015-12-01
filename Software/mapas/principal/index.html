@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">
-        <title>cored mapas </title>
+        <title>Cored</title>
         <style>
             html, body {
                 height: 100%;
@@ -18,18 +18,23 @@
     <body>
         <div id="map"></div>
         <script>
+
+    // This example creates a simple polygon representing the Bermuda Triangle.
+    // When the user clicks on the polygon an info window opens, showing
+    // information about the polygon's coordinates.
+
             var map;
             var infoWindow;
-            
+
             function initMap() {
-                var map = new google.maps.Map(document.getElementById('map'), {
+                map = new google.maps.Map(document.getElementById('map'), {
                     zoom: 9,
-                    center: {lat: -29.290833,  lng: -54.223889},
-                    mapTypeId: 'roadmap'
+                    center: {lat: -29.465620000, lng: -53.687043000},
+                    mapTypeId: google.maps.MapTypeId.TERRAIN
                 });
 
-                // Define the LatLng coordinates for the polygon's path.
-                var santa_maria_cordenadas = [
+                // Define the LatLng coordinates for the polygon.
+                var santa_cordenadas = [
                     {lat: -29.686389000, lng: -54.131858000},
                     {lat: -29.684578000, lng: -54.128467000},
                     {lat: -29.684803000, lng: -54.127727000},
@@ -736,7 +741,8 @@
                     {lat: -29.686365000, lng: -54.129269000},
                     {lat: -29.686389000, lng: -54.131858000}
                 ];
-                var agudo_cordenadas = [
+
+var agudo_cordenadas = [
                     {lat: -29.637721000, lng: -53.361581000},
                     {lat: -29.632939000, lng: -53.359218000},
                     {lat: -29.625073000, lng: -53.347965000},
@@ -1038,7 +1044,7 @@
                     {lat: -29.639665000, lng: -53.359994000},
                     {lat: -29.637721000, lng: -53.361581000}
                 ];
-                var tupacereta_cordenadas = [
+                 var tupacereta_cordenadas = [
                     {lat: -29.005665000, lng: -54.379848000},
                     {lat: -29.004737000, lng: -54.377537000},
                     {lat: -29.000397000, lng: -54.375078000},
@@ -6600,7 +6606,7 @@
                     {lat: -29.927636000, lng: -54.327742000}
 
                 ];
-                var diler = new google.maps.Polygon({
+                 var diler = new google.maps.Polygon({
                     paths: diler_cordenadas,
                     strokeColor: '#FE2E64',
                     strokeOpacity: 0.8,
@@ -6780,28 +6786,9 @@
                 topori.addListener('click', showtopori);
 
                 // Construct the polygon.
-                var santa_maria = new google.maps.Polygon({
-                    paths: santa_maria_cordenadas,
-                    strokeColor: '#FF0000',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    fillColor: '#FF0000',
-                    fillOpacity: 0.35
-                });
-                   santa_maria.setMap(map);
-                   santa_maria.addListener('click', showsanta_maria);
+          
 
-                var agudo = new google.maps.Polygon({
-                    paths: agudo_cordenadas,
-                    strokeColor: '#10EB52',
-                    strokeOpacity: 0.8,
-                    strokeWeight: 2,
-                    fillColor: '#10EB52',
-                    fillOpacity: 0.35
-                });
-                agudo.setMap(map);
-                agudo.addListener('click', showagudo);
-                
+               
                 var tupacereta = new google.maps.Polygon({
                     paths: tupacereta_cordenadas,
                     strokeColor: '#FFFF00',
@@ -6814,25 +6801,73 @@
                 tupacereta.addListener('click', showtupacereta);
 
 
-               infoWindow = new google.maps.InfoWindow;
-            }
+             
             
-            function showdiler(event) {
-                var contentString = '<b> teste showdiler</b><br>';
+                // Construct the polygon.
+                var santa_maria = new google.maps.Polygon({
+                    paths: santa_cordenadas,
+                    strokeColor: '#FF0000',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 3,
+                    fillColor: '#FF0000',
+                    fillOpacity: 0.35
+                });
+                santa_maria.setMap(map);
+
+                // Add a listener for the click event.
+                santa_maria.addListener('click', texo_santa_maria);
+                 var agudo = new google.maps.Polygon({
+                    paths: agudo_cordenadas,
+                    strokeColor: '#10EB52',
+                    strokeOpacity: 0.8,
+                    strokeWeight: 2,
+                    fillColor: '#10EB52',
+                    fillOpacity: 0.35
+                });
+                agudo.setMap(map);
+                agudo.addListener('click', showagudo);
+                infoWindow = new google.maps.InfoWindow;
+            
+            }
+            /** @this {google.maps.Polygon} */
+            
+    function showagudo(event) {
+                var contentString = '<h1>Agudo</h1><br>População Total (2014): 16.982 habitantes<br>Área (2013): 536,1 km²<br>Densidade Demográfica (2013): 31,0 hab/km²<br>Taxa de analfabetismo de pessoas com 15 anos ou mais (2010): 6,78 %<br> Expectativa de Vida ao Nascer (2010):  75,84 anos<br>Coeficiente de Mortalidade Infantil (2012): 10,99 por mil nascidos vivos<br>PIB (2012): R$ mil 321.902<br>PIB per capita (2012): R$ 19.378<br>Exportações Totais (2014): U$ FOB 390.771<br>Data de criação: 16/2/1959 - (Lei nº . 3718)';
+                infoWindow.setContent(contentString);
+                infoWindow.setPosition(event.latLng);
+                infoWindow.open(map);
+            }
+    
+    
+    function texo_santa_maria(event) {
+                // Since this polygon has only one path, we can call getPath() to return the
+                // MVCArray of LatLngs.
+                var vertices = this.getPath();
+
+                var contentString = '<h1>Santa Maria</h1><br>População Total (2014): 275.777  habitantes <br> Área (2013): 1.781,8 km²<br> Densidade Demográfica (2013): 149,0 hab/km²<br>Taxa de analfabetismo de pessoas com 15 anos ou mais (2010): 3,17 % <br>Expectativa de Vida ao Nascer (2010): 75,89 anos <br>Coeficiente de Mortalidade Infantil (2012): 11,59 por mil nascidos vivos<br>PIB (2012): R$ mil 4.682.859<br>PIB per capita (2012): R$ 17.761<br>Exportações Totais (2014): U$ FOB 41.043.157<br>Data de criação: 16/12/1857 - (Lei nº . 400)<br>';
+
+             
+                // Replace the info window's content and position.
+                infoWindow.setContent(contentString);
+                infoWindow.setPosition(event.latLng);
+                infoWindow.open(map);
+            }
+                function showdiler(event) { 
+                var contentString = '<h1>Dilermando de Aguiar</h1><br>População Total (2014): 2.915  habitantes<br>Área (2013): 600,5 km²<br>Densidade Demográfica (2013): 5,1 hab/km²<br> Taxa de analfabetismo de pessoas com 15 anos ou mais (2010): 13,65 %<br>Expectativa de Vida ao Nascer (2010): 76,85 anos<br>Coeficiente de Mortalidade Infantil (2012): 0,00 por mil nascidos vivos<br>PIB (2012): R$ mil 65.301<br>PIB per capita (2012): R$ 21.452<br>Exportações Totais (2014): U$ FOB 2.413<br>Data de criação: 28/12/1995 - (Lei nº . 10633)';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
             }
             
             function showdona(event) {
-                var contentString = '<b> teste showdona</b><br>';
+                var contentString = '<h1>Dona Francisca</h1><br><dl><dt>População Total&nbsp;(2014)</dt><dd>3.275&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>114,3&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>29,0&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>7,19&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>74,84&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>58,82&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 54.038</dd><dt>PIB per capita (2012)</dt><dd>R$ 16.247</dd><dt>Exportações Totais (2011)</dt><dd>U$ FOB 205.167</dd><dt>Data de criação</dt><dd>17/7/1965 - (Lei nº . 4993)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
             }
             
             function showfaxinal(event) {
-                var contentString = '<b> teste showfaxinal</b><br>';
+                var contentString = '<h1>Faxinal do Soturno</h1><br> <dt>População Total&nbsp;(2014)</dt><dd>6.683&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>169,9&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>39,0&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>5,15&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>76,21&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>0,00&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 127.932</dd><dt>PIB per capita (2012)</dt><dd>R$ 19.247</dd><dt>Exportações Totais (2014)</dt><dd>U$ FOB 10.036</dd><dt>Data de criação</dt><dd>12/2/1959 - (Lei nº . 3711)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
@@ -6840,7 +6875,7 @@
             
             
             function showformigueiro(event) {
-                var contentString = '<b> teste showformigueiror</b><br>';
+                var contentString = '<h1>Formigueiro</h1><br><dt>População Total&nbsp;(2014)</dt><dd>6.734&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>582,0&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>12,0&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>11,22&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>75,30&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>0,00&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 109.994</dd><dt>PIB per capita (2012)</dt><dd>R$ 15.881</dd><dt>Data de criação</dt><dd>9/10/1963 - (Lei nº . 4575)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
@@ -6848,14 +6883,14 @@
             
             
             function showivora(event) {
-                var contentString = '<b> teste showivora</b><br>';
+                var contentString = '<h1>Ivorá</h1><br><dt>População Total&nbsp;(2014)</dt><dd>2.065&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>122,9&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>17,0&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>4,84&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>78,13&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>0,00&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 31.970</dd><dt>PIB per capita (2012)</dt><dd>R$ 15.188</dd><dt>Data de criação</dt><dd>9/5/1988 - (Lei nº . 8597)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
             }
             
             function showitaara(event) {
-                var contentString = '<b> teste showitaara</b><br>';
+                var contentString = '<h1>Itaara</h1><br><dt>População Total&nbsp;(2014)</dt><dd>5.145&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>173,0&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>29,6&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>5,72&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>75,46&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>17,54&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 63.365</dd><dt>PIB per capita (2012)</dt><dd>R$ 12.483</dd><dt>Data de criação</dt><dd>28/12/1995 - (Lei nº . 10643)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
@@ -6863,7 +6898,7 @@
             
             
             function  showjari(event) {
-                var contentString = '<b> teste  showjaris</b><br>';
+                var contentString = '<h1>Jari</h1><br><dt>População Total&nbsp;(2014)</dt><dd>3.523&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>856,5&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>4,1&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>7,65&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>75,14&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>32,26&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 73.196</dd><dt>PIB per capita (2012)</dt><dd>R$ 20.624</dd><dt>Data de criação</dt><dd>28/12/1995 - (Lei nº . 10653)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
@@ -6871,21 +6906,21 @@
             
             
             function  showjulio(event) {
-                var contentString = '<b> teste  showjulio</b><br>';
+                var contentString = '<h1>Júlio de Castilhos</h1><br><dt>População Total&nbsp;(2014)</dt><dd>19.630&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>1.929,4&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>10,1&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>5,65&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>74,96&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>4,41&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 504.649</dd><dt>PIB per capita (2012)</dt><dd>R$ 25.942</dd><dt>Exportações Totais (2014)</dt><dd>U$ FOB 8.792.529</dd><dt>Data de criação</dt><dd>14/07/1891 - (Lei nº . 607)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
             }
             
             function shownova_palma(event) {
-                var contentString = '<b> teste shownova_palma</b><br>';
+                var contentString = '<h1>Nova Palma</h1><br><dt>População Total&nbsp;(2014)</dt><dd>6.233&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>313,5&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>20,2&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>3,62&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>75,44&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>0,00&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 156.476</dd><dt>PIB per capita (2012)</dt><dd>R$ 24.654</dd><dt>Exportações Totais (2014)</dt><dd>U$ FOB 514.440</dd><dt>Data de criação</dt><dd>29/7/1960 - (Lei nº . 3933)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
             }
             
             function showpinhal(event) {
-                var contentString = '<b> teste showpinhalr</b><br>';
+                var contentString = '<h1>Pinhal Grande</h1><br><dt>População Total&nbsp;(2014)</dt><dd>4.290&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>477,1&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>9,3&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>7,99&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>73,25&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>0,00&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 100.578</dd><dt>PIB per capita (2012)</dt><dd>R$ 22.689</dd><dt>Data de criação</dt><dd>20/3/1992 - (Lei nº . 9600)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
@@ -6893,7 +6928,7 @@
             
             
             function showquevedo(event) {
-                var contentString = '<b> teste showquevedo</b><br>';
+                var contentString = '<h1>Quevedos</h1><br><dt>População Total&nbsp;(2014)</dt><dd>2.759&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>543,4&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>5,1&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>8,47&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>74,45&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>66,67&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 64.074</dd><dt>PIB per capita (2012)</dt><dd>R$ 23.618</dd><dt>Exportações Totais (2014)</dt><dd>U$ FOB 149.823</dd><dt>Data de criação</dt><dd>20/3/1992 - (Lei nº . 9589)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
@@ -6901,56 +6936,51 @@
             
             
             function showsaojoao(event) {
-                var contentString = '<b> teste showsaojoao</b><br>';
+                var contentString = '<h1>São João do Polêsine</h1><br><dt>População Total&nbsp;(2014)</dt><dd>2.659&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>79,2&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>32,6&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>4,65&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>75,84&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>0,00&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 45.907</dd><dt>PIB per capita (2012)</dt><dd>R$ 17.849</dd><dt>Data de criação</dt><dd>20/3/1992 - (Lei nº . 9601)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
             }
             
             function showsao_martinho(event) {
-                var contentString = '<b> teste showsao_martinho</b><br>';
+                var contentString = '<h1>São Martinho da Serra</h1><br><dt>População Total&nbsp;(2014)</dt><dd>3.137&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>669,5&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>4,8&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>9,63&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>75,89&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>0,00&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 83.506</dd><dt>PIB per capita (2012)</dt><dd>R$ 26.136</dd><dt>Data de criação</dt><dd>20/3/1992 - (Lei nº . 9593)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
             }
             
             function showsao_pedro(event) {
-                var contentString = '<b> teste showsao_pedro</b><br>';
+                var contentString = '<h1>São Pedro do Sul</h1><br><dt>População Total&nbsp;(2014)</dt><dd>16.741&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>873,6&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>18,6&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>5,81&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>74,45&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>0,00&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 238.158</dd><dt>PIB per capita (2012)</dt><dd>R$ 14.633</dd><dt>Exportações Totais (2007)</dt><dd>U$ FOB 363</dd><dt>Data de criação</dt><dd>22/3/1926 - (Decreto-Lei nº . 3624)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
             }
             
             function showsilveira(event) {
-                var contentString = '<b> teste showsilveira</b><br>';
+                var contentString = '<h1>Silveira Martins</h1><br><dt>População Total&nbsp;(2014)</dt><dd>2.463&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>118,3&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>20,4&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>5,40&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>76,14&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>0,00&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 29.411</dd><dt>PIB per capita (2012)</dt><dd>R$ 12.173</dd><dt>Exportações Totais (2014)</dt><dd>U$ FOB 91.253</dd><dt>Data de criação</dt><dd>11/12/1987 - (Lei nº . 8481)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
             }
             
             function showtopori(event) {
-                var contentString = '<b> teste showtopori</b><br>';
+                var contentString = '<h1>Toropi</h1><br><dt>População Total&nbsp;(2014)</dt><dd>2.649&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>203,0&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>14,3&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>6,04&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>74,34&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>0,00&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 39.185</dd><dt>PIB per capita (2012)</dt><dd>R$ 13.438</dd><dt>Data de criação</dt><dd>28/12/1995 - (Lei nº . 10669)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
             }
             
             function showsanta_maria(event) {
-                var contentString = '<b> teste showsanta_maria</b><br>';
+                var contentString = 'sojgjdfajgsdfkgopkwfmklopdfgodfg ';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);
             }
             
-            function showagudo(event) {
-                var contentString = '<b> teste showagudo</b><br>';
-                infoWindow.setContent(contentString);
-                infoWindow.setPosition(event.latLng);
-                infoWindow.open(map);
-            }
+                
             
             function showtupacereta(event) {
-                var contentString = '<b> teste showtupaceretar</b><br>';
+                var contentString = '<h1>Tupanciretã</h1><br><dt>População Total&nbsp;(2014)</dt><dd>22.453&nbsp; habitantes</dd><dt>Área&nbsp;(2013)</dt><dd>2.251,9&nbsp;km²</dd><dt>Densidade Demográfica&nbsp;(2013)</dt><dd>10,0&nbsp;hab/km²</dd><dt>Taxa de analfabetismo de pessoas com 15 anos ou mais&nbsp;(2010)</dt><dd>5,44&nbsp;%</dd><dt>Expectativa de Vida ao Nascer&nbsp;(2010)</dt><dd>74,67&nbsp;anos</dd><dt>Coeficiente de Mortalidade Infantil&nbsp;(2012)</dt><dd>14,08&nbsp;por mil nascidos vivos</dd><dt>PIB (2012)</dt><dd>R$ mil 575.999</dd><dt>PIB per capita (2012)</dt><dd>R$ 25.619</dd><dt>Exportações Totais (2014)</dt><dd>U$ FOB 8.179.299</dd><dt>Data de criação</dt><dd>21/12/1928 - (Decreto nº . 4200)</dd>';
                 infoWindow.setContent(contentString);
                 infoWindow.setPosition(event.latLng);
                 infoWindow.open(map);

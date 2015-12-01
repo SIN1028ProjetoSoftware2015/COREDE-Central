@@ -1,0 +1,12 @@
+Siga os passos
+=======================
+
+1- Copiar todos os arquivos contidos na pasta "Software" para o servidor;
+
+2- Criar um banco de dados e importar o "scriptDB.sql" da pasta DB;
+
+3- Configurar no arquivo "./coredeadm/config/sistema.class.php" os dados do banco de dados;
+
+4- Tentar acessar o sistema, se não apresentar erro de conexão, está funcionando!
+
+;)

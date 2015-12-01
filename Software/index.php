@@ -27,8 +27,6 @@ echo '</div></div>';
 
 ?>
 
-<div class="corede-subtitulo">Notícias</div>
-
 <div class="corede-noticia">
     
     <?php 

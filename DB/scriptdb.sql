@@ -37,7 +37,6 @@ CREATE TABLE `mb_atas` (
 
 LOCK TABLES `mb_atas` WRITE;
 /*!40000 ALTER TABLE `mb_atas` DISABLE KEYS */;
-INSERT INTO `mb_atas` VALUES (1,'teste maik','24/11/2015','24112015205625_Boleto-ppgee.pdf'),(2,'teste Simone','24/11/2015','24112015205631_Aula 1 Introducao.pdf'),(4,'teste1','24/11/2015','24112015205816_Aula 2 Pre-processamento.pdf'),(5,'teste2','24/11/2015','24112015205830_Aula 3  Modelo Booleano.pdf'),(6,'teste3','24/11/2015','24112015205910_Aula 4 - Modelo Vetorial.pdf'),(7,'teste5','24/11/2015','24112015210121_Aula 5 - Modelo Probabilistico.pdf'),(8,'teste6','24/11/2015','24112015210142_Aula 6 - AvaliaÃ§Ã£o de desempenho.pdf');
 /*!40000 ALTER TABLE `mb_atas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -209,4 +208,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-12-01 20:52:35
+-- Dump completed on 2015-12-01 20:59:23

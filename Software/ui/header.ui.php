@@ -44,6 +44,7 @@
                         else {
                             echo '<li><a href="index.php">Home</a></li>
                                 <li><a href="listnoticia.php?tag=noticia">Notícias</a></li>
+                                <li><a href="listnoticia.php?tag=convocacoes">Convocações</a></li>
                                 <li><a href="listnoticia.php?tag=convite">Convite</a></li>
                                 <li><a href="pagina.php?id=1">Sobre</a></li>
                                 <li><a href="contato.php">Contato</a></li>
